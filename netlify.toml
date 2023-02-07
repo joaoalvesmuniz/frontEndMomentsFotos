@@ -3,3 +3,5 @@ base = "."
 command = "npm run build"
 publish = "./build/"
 
+[build.environment]
+REACT_APP_API_URL = "https://tasksmoments-production.up.railway.app/"
