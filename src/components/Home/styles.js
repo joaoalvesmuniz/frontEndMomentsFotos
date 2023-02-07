@@ -2,6 +2,11 @@
 import styled from 'styled-components';
 import { FaPen } from 'react-icons/fa';
 
+export const BodyHome = styled.body`
+
+background-color: #E1E5EE;
+`
+
 export const ContainerImagem = styled.div`
 
 width:100%;
@@ -137,7 +142,7 @@ export const DivModalGlobal = styled.div`
 export const ModalContent = styled.div` 
  background-color: white;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   border-radius: 5px;
   width: 40%;
  

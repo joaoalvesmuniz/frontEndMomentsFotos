@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from '../Header/Header'
 import axios from 'axios';
 import { ButtonModal, InputModal } from '../Header/styles'
-import { ContainerImagem, DivEditar, DivIcon, DivIconeGlobalCard, DivModalGlobal, DivTitulo, Imagem, ModalContent, StyledHeart } from './styles';
+import { BodyHome, ContainerImagem, DivEditar, DivIcon, DivIconeGlobalCard, DivModalGlobal, DivTitulo, Imagem, ModalContent, StyledHeart } from './styles';
 
 
 import { Modal as ModalComponente, Input } from "antd";
@@ -80,11 +80,13 @@ const Home = () => {
     }
 
 
-    const handleDeleteImg = async () => {
+    const handleDeleteImg = async (e) => {
 
+
+        console.log("Remover imagem " + idImagem)
         const urlDelteImagem = `https://tasksmoments-production.up.railway.app/upload/${idImagem}`
         await axios.delete(urlDelteImagem).then(response => {
-
+            window.location.reload()
         }).catch(error => {
 
 
@@ -130,7 +132,7 @@ const Home = () => {
                                 onChange={(event) => setImagemUpdate(event.target.files[0])}
                             />
                             <div style={{ width: '100%', justifyContent: 'flex-end', display: 'flex', marginTop: '30px' }}>
-                                <ButtonModal onClick={() => {
+                                <ButtonModal type='button' onClick={() => {
                                     handleDeleteImg()
 
                                 }} style={{ background: '#3432c2' }}  >
@@ -157,47 +159,48 @@ const Home = () => {
             )
             }
 
+            <BodyHome>
+                <div style={{ display: 'flex', width: '', minHeight: '969px', justifyContent: 'start', alignContent: 'flex-end' }}>
+                    <Header />
+                    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}
+                    >
+                        {myArray.map((i) => {
 
-            <div style={{ display: 'flex', width: '', minHeight: '969px', justifyContent: 'start', alignContent: 'flex-end' }}>
-                <Header />
-                <div style={{ width: '100%', height: '100%', border: '1px solid black', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    {myArray.map((i) => {
+                            return <ContainerImagem key={i.NomeImagem} >
+                                <DivEditar onClick={() => {
+                                    openModal()
 
-                        return <ContainerImagem key={i.NomeImagem} >
-                            <DivEditar onClick={() => {
-                                openModal()
+                                    getNomeImg(i.NomeImagem, i.id)
 
-                                getNomeImg(i.NomeImagem, i.id)
+                                }} >
 
-                            }} >
+                                    <DivIconeGlobalCard>
 
-                                <DivIconeGlobalCard>
+                                        <DivIcon style={{ backgroundColor: "rgb(233, 233, 233)", marginRight: '10px', marginTop: '10px' }}>
 
-                                    <DivIcon style={{ backgroundColor: "rgb(233, 233, 233)", marginRight: '10px', marginTop: '10px' }}>
+                                            <StyledHeart />
+                                        </DivIcon>
+                                    </DivIconeGlobalCard>
 
-                                        <StyledHeart />
-                                    </DivIcon>
-                                </DivIconeGlobalCard>
+                                    <DivTitulo className='divTitulo'>
+                                        <p>{i.Titulo}</p>
+                                    </DivTitulo>
 
-                                <DivTitulo className='divTitulo'>
-                                    <p>{i.Titulo}</p>
-                                </DivTitulo>
+                                </DivEditar>
 
-                            </DivEditar>
+                                <Imagem
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} value={i.NomeImagem} src={`https://tasksmoments-production.up.railway.app/upload/${i.NomeImagem}`} >
 
-                            <Imagem
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} value={i.NomeImagem} src={`https://tasksmoments-production.up.railway.app/upload/${i.NomeImagem}`} >
-
-                            </Imagem>
+                                </Imagem>
 
 
-                        </ContainerImagem>
+                            </ContainerImagem>
 
-                    })}
+                        })}
 
-                </div>
-            </div >
+                    </div>
+                </div >
+            </BodyHome>
         </>
     )
 }

@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #EC4426;
+  background-color: #F7C59F;
   color: #fff;
    width: 450px;
    
