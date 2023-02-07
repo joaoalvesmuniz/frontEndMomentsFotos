@@ -99,7 +99,7 @@ export const RegisterButton = styled.a`
   font-size: 12px;
   border: none;
   font-family: 'Red Hat Display', sans-serif;
-  
+  cursor: pointer;
   border-radius: 5px;
   color: blue;
  

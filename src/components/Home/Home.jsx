@@ -23,6 +23,7 @@ const Home = () => {
         axios.get('https://tasksmoments-production.up.railway.app/upload/all-images')
             .then(response => {
                 setMyArray(response.data)
+
                 console.log(response)
             })
             .catch(error => {
@@ -66,6 +67,7 @@ const Home = () => {
             const urlPut = `https://tasksmoments-production.up.railway.app/upload/${idImagem}`
 
             axios.put(urlPut, dataImgUpdate).then(response => {
+                window.location.reload()
                 console.log("Respostas" + response.data)
             }).catch(error => {
                 console.error(error);
