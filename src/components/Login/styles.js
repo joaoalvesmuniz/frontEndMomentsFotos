@@ -113,4 +113,5 @@ export const LoginButton = styled.button`
   border-radius: 5px;
   background-color: #333;
   color: #fff;
+  cursor: pointer;
 `;
