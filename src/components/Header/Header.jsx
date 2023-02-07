@@ -26,6 +26,7 @@ const Header = () => {
 
             setNomeUser(response.data.user.name)
             setDiretorio(response.data.user.Avatar)
+            window.location.reload()
         })
         .catch(error => {
             console.error(error);
@@ -61,6 +62,7 @@ const Header = () => {
                 console.log(res.data);
                 const data = { NomeImagem: res.data, Titulo: "dsakjksad" }
                 axios.post("https://tasksmoments-production.up.railway.app/upload/create-imagemdb",)
+                window.location.reload()
             })
             .catch(err => {
                 console.error(err);
@@ -71,6 +73,7 @@ const Header = () => {
         axios.put(urlPut, data).then(response => {
 
             console.log(profilePicture.name)
+            window.location.reload()
 
         })
             .catch(error => {
@@ -95,6 +98,7 @@ const Header = () => {
             axios.post("https://tasksmoments-production.up.railway.app/upload/create-imagemDb", data)
                 .then(response => {
                     console.log(response)
+                    window.location.reload()
                 })
                 .catch(error => {
                     console.error(error);
