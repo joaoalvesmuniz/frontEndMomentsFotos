@@ -26,7 +26,7 @@ const Header = () => {
 
             setNomeUser(response.data.user.name)
             setDiretorio(response.data.user.Avatar)
-            window.location.reload()
+
         })
         .catch(error => {
             console.error(error);
