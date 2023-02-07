@@ -98,4 +98,9 @@ export const ContainerAvatar = styled.div`
 export const Item = styled.div`
   padding: 10px 0;
   text-align: center;
+  cursor: pointer;
+  &:hover{
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 `;
