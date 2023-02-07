@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #a16f56;
+  background: linear-gradient(90deg, #363636  0%, #4d4d4d 100%);
   display: flex;
   align-items: center;
   justify-content: center;
