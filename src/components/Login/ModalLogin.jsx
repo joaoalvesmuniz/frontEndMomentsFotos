@@ -45,7 +45,7 @@ const ModalLogin = () => {
         axios.post('https://tasksmoments-production.up.railway.app/user/create-user', data)
             .then(response => {
                 console.log(response.data.id)
-                navigate("/home/" + response.data.id)
+
             })
             .catch(error => {
                 console.error(error);
